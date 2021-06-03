@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class EquationParser {
 	private final OperatorList operators;
 	//private final MethodList methods; //TODO
+	//TODO: fields/variables
 	private final StepSorter sorter;
 	
 	public EquationParser() {
@@ -66,8 +67,6 @@ public class EquationParser {
 			}
 			str = str.substring(1, str.length() - 1);
 		}
-//		while (str.startsWith("(") && str.endsWith(")"))
-//			str = str.substring(1, str.length() - 1);
 		StringBuilder tempEq = new StringBuilder();
 		int innerEqCount = 0;
 		StringBuilder tempV = new StringBuilder();
