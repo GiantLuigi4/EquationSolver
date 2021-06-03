@@ -26,5 +26,9 @@ public class EquationTest {
 		Equation eq1 = parser.parse("(2.0+4.0*4.0*4.0/1.5)");
 		System.out.println(eq1);
 		System.out.println(eq1.get());
+		eq1 = parser.parse("2*3/5+3-6*3/2");
+		System.out.println(eq1);
+		System.out.println(eq1.get());
+		System.out.println(parser.parse("((2*3)/5)+3-((6*3)/2)"));
 	}
 }

@@ -48,6 +48,6 @@ public class Equation extends Value {
 			eq += operatorValuePair.second.toString(parser);
 		}
 		eq += ")";
-		return eq;
+		return eq.replace(".0", "");
 	}
 }

@@ -17,18 +17,19 @@ public class StepSorter {
 	public String group(ArrayList<Step> steps, EquationParser parser) {
 		StringBuilder eq = new StringBuilder("(");
 		int parenCount = 0;
-		{
-			Step step = steps.get(0);
-			Step step1 = steps.get(1);
-			eq.append(step.value.toString(parser));
-			eq.append(step1.key);
-		}
-		for (int i = 1; i < steps.size() - 1; i++) {
+//		{
+//			Step step = steps.get(0);
+//			Step step1 = steps.get(1);
+//			eq.append(step.value.toString(parser));
+//			eq.append(step1.key);
+//		}
+//		for (int i = 1; i < steps.size(); i++) {
+		for (int i = 0; i < steps.size() - 1; i++) {
 			Step step = steps.get(i);
 			Step step1 = steps.get(i + 1);
 			int g = getGroupingNumber(step.key);
 			int g1 = getGroupingNumber(step1.key);
-			if (step.key != ' ' && g != g1) {
+			if (step.key != ' ' && g > g1) {
 				eq.append("(");
 				parenCount++;
 			}

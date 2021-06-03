@@ -50,8 +50,24 @@ public class EquationParser {
 		//if none of the above ifs have passed, throw an exception
 		//end iter
 		ArrayList<Step> steps = new ArrayList<>();
-		while (str.startsWith("(") && str.endsWith(")"))
+		l:
+		while (str.startsWith("(")) {
+			int openParens = 0;
+			int cI = 0;
+			for (char c : str.toCharArray()) {
+				cI++;
+				if (cI == str.length()) break;
+				if (c == '(') {
+					openParens++;
+				} else if (c == ')') {
+					openParens--;
+					if (openParens <= 0) break l;
+				}
+			}
 			str = str.substring(1, str.length() - 1);
+		}
+//		while (str.startsWith("(") && str.endsWith(")"))
+//			str = str.substring(1, str.length() - 1);
 		StringBuilder tempEq = new StringBuilder();
 		int innerEqCount = 0;
 		StringBuilder tempV = new StringBuilder();
