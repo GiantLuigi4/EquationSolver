@@ -32,4 +32,22 @@ public class Equation extends Value {
 		}
 		return v;
 	}
+	
+	@Override
+	public String toString() {
+		return toString(parser);
+	}
+	
+	@Override
+	public String toString(EquationParser parser) {
+		String eq = "(";
+		for (Pair<Operator, Value> operatorValuePair : equation) {
+			if (operatorValuePair.first != null) {
+				eq += parser.getSymbol(operatorValuePair.first);
+			}
+			eq += operatorValuePair.second.toString(parser);
+		}
+		eq += ")";
+		return eq;
+	}
 }

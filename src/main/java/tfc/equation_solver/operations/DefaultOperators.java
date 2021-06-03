@@ -14,7 +14,7 @@ public class DefaultOperators extends OperatorList {
 	// "*/%": handle multiplication, division, and modulus first without sorting
 	// make sure they’re before
 	// "-+": handle subtraction and addition without sorting
-	private static final String order = "*/% -+";
+	private static final String order = "-+ */%";
 	
 	static {
 		operators.put('*', new MultiplicationOperator());
