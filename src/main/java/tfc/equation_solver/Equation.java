@@ -25,9 +25,9 @@ public class Equation extends Value {
 	}
 	
 	public double get(EquationParser parser) {
-		double v = 0;
+		double v = 1;
 		for (Pair<Operator, Value> step : equation) {
-			if (step.first == null) v = step.second.get(parser);
+			if (step.first == null) v *= step.second.get(parser);
 			else v = step.first.apply(this, new Constant(v), step.second);
 		}
 		return v;

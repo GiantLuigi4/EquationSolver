@@ -30,5 +30,14 @@ public class EquationTest {
 		System.out.println(eq1);
 		System.out.println(eq1.get());
 		System.out.println(parser.parse("((2*3)/5)+3-((6*3)/2)"));
+		Equation eq2 = parser.parse("3(2 + 6)");
+		System.out.println(eq2);
+		System.out.println(eq2.get());
+		Equation eq3 = parser.parse("3(2)");
+		System.out.println(eq3);
+		System.out.println(eq3.get());
+		Equation eq4 = parser.parse("(2)3");
+		System.out.println(eq4);
+		System.out.println(eq4.get());
 	}
 }

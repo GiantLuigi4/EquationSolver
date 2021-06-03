@@ -3,10 +3,10 @@ import tfc.equation_solver.EquationParser;
 
 import java.util.Random;
 
-public class EquationTest1 {
+public class RandomlyGeneratedEquation {
 	public static void main(String[] args) {
 		StringBuilder s = new StringBuilder();
-		char[] ops = new char[] {'+', '-', '*', '/', '%'};
+		char[] ops = new char[]{'+', '-', '*', '/', '%'};
 		for (int i = 0; i < new Random().nextInt(8) + 8; i++) {
 			s.append(new Random().nextInt(6) + 1);
 			s.append(ops[new Random().nextInt(ops.length - 1)]);
