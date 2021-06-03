@@ -26,6 +26,10 @@ public class StepSorter {
 				parenCount++;
 			}
 			eq.append(step.value.toString(parser));
+			if (step.key != ' ' && g < g1) {
+				eq.append(")");
+				parenCount--;
+			}
 			eq.append(step1.key);
 		}
 		Step step = steps.get(steps.size() - 1);

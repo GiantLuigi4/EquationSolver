@@ -40,14 +40,16 @@ public class Equation extends Value {
 	
 	@Override
 	public String toString(EquationParser parser) {
-		String eq = "(";
+		StringBuilder eq = new StringBuilder("(");
 		for (Pair<Operator, Value> operatorValuePair : equation) {
 			if (operatorValuePair.first != null) {
-				eq += parser.getSymbol(operatorValuePair.first);
+				eq.append(parser.getSymbol(operatorValuePair.first));
 			}
-			eq += operatorValuePair.second.toString(parser);
+			String s = operatorValuePair.second.toString(parser);
+			if (s.endsWith(".0")) s = s.replace(".0", "");
+			eq.append(s);
 		}
-		eq += ")";
-		return eq.replace(".0", "");
+		eq.append(")");
+		return eq.toString();
 	}
 }
