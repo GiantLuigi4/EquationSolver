@@ -1,11 +1,11 @@
 package tfc.equation_solver.values;
 
-import tfc.equation_solver.EquationParser;
+import tfc.equation_solver.ExpressionParser;
 
 public abstract class Value {
-	public abstract double get(EquationParser parser);
+	public abstract double get(ExpressionParser parser);
 	
-	public String toString(EquationParser parser) {
+	public String toString(ExpressionParser parser) {
 		return String.valueOf(get(parser));
 	}
 	

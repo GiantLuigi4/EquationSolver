@@ -1,6 +1,6 @@
 package tfc.equation_solver.values;
 
-import tfc.equation_solver.EquationParser;
+import tfc.equation_solver.ExpressionParser;
 
 public class Constant extends Value {
 	private final double constant;
@@ -9,7 +9,7 @@ public class Constant extends Value {
 		constant = val;
 	}
 	
-	public double get(EquationParser parser) {
+	public double get(ExpressionParser parser) {
 		return constant;
 	}
 }

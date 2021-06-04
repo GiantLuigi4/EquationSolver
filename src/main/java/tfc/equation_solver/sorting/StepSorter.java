@@ -1,6 +1,6 @@
 package tfc.equation_solver.sorting;
 
-import tfc.equation_solver.EquationParser;
+import tfc.equation_solver.ExpressionParser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +13,7 @@ public class StepSorter {
 		stepGroupings.addAll(Arrays.asList(groupings.split(" ")));
 	}
 	
-	public String group(ArrayList<Step> steps, EquationParser parser) {
+	public String group(ArrayList<Step> steps, ExpressionParser parser) {
 		StringBuilder eq = new StringBuilder("(");
 		int parenCount = 0;
 		for (int i = 0; i < steps.size() - 1; i++) {

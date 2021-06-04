@@ -1,11 +1,11 @@
 package tfc.equation_solver.operations.operators;
 
-import tfc.equation_solver.Equation;
+import tfc.equation_solver.Expression;
 import tfc.equation_solver.operations.Operator;
 import tfc.equation_solver.values.Value;
 
 public class MultiplicationOperator extends Operator {
-	public double apply(Equation equation, Value left, Value right) {
-		return left.get(equation.parser) * right.get(equation.parser);
+	public double apply(Expression expression, Value left, Value right) {
+		return left.get(expression.parser) * right.get(expression.parser);
 	}
 }

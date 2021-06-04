@@ -10,29 +10,29 @@ import tfc.equation_solver.values.Value;
 
 import java.util.ArrayList;
 
-public class EquationParser {
+public class ExpressionParser {
 	private final OperatorList operators;
 	//private final MethodList methods; //TODO
 	//TODO: fields/variables
 	private final StepSorter sorter;
 	
-	public EquationParser() {
+	public ExpressionParser() {
 		this(new DefaultOperators());
 	}
 	
-	public EquationParser(OperatorList operators) {
+	public ExpressionParser(OperatorList operators) {
 		this.operators = operators;
 		sorter = new StepSorter(operators.getOrder());
 	}
 	
-	public Equation parse(String str) {
+	public Expression parse(String str) {
 		ArrayList<Step> steps = getSteps(str);
 		return parseNoSort(sorter.group(steps, this));
 	}
 	
-	public Equation parseNoSort(String str) {
+	public Expression parseNoSort(String str) {
 		ArrayList<Step> steps = getSteps(str);
-		Equation eq = new Equation(this);
+		Expression eq = new Expression(this);
 		for (Step step : steps) eq.addPart(step.op, step.value);
 		return eq;
 	}
@@ -89,7 +89,7 @@ public class EquationParser {
 							steps.add(new Step(op, getFor(op), v));
 						}
 						tempEq = new StringBuilder();
-						op = '*';
+						op = ' ';
 						continue;
 					}
 				}

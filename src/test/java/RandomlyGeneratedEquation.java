@@ -1,5 +1,5 @@
-import tfc.equation_solver.Equation;
-import tfc.equation_solver.EquationParser;
+import tfc.equation_solver.Expression;
+import tfc.equation_solver.ExpressionParser;
 
 import java.util.Random;
 
@@ -13,9 +13,9 @@ public class RandomlyGeneratedEquation {
 		}
 		s = new StringBuilder(s.substring(0, s.length() - 1));
 		System.out.println(s);
-		EquationParser parser = new EquationParser();
-		Equation equation = parser.parse(s.toString());
-		System.out.println(equation);
-		System.out.println(equation.get());
+		ExpressionParser parser = new ExpressionParser();
+		Expression expression = parser.parse(s.toString());
+		System.out.println(expression);
+		System.out.println(expression.get());
 	}
 }
