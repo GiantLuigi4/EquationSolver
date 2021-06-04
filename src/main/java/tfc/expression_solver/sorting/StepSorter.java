@@ -1,6 +1,6 @@
-package tfc.equation_solver.sorting;
+package tfc.expression_solver.sorting;
 
-import tfc.equation_solver.ExpressionParser;
+import tfc.expression_solver.ExpressionParser;
 
 import java.util.ArrayList;
 import java.util.Arrays;

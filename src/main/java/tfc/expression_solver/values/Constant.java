@@ -1,6 +1,6 @@
-package tfc.equation_solver.values;
+package tfc.expression_solver.values;
 
-import tfc.equation_solver.ExpressionParser;
+import tfc.expression_solver.ExpressionParser;
 
 public class Constant extends Value {
 	private final double constant;

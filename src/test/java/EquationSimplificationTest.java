@@ -1,5 +1,5 @@
-import tfc.equation_solver.Expression;
-import tfc.equation_solver.ExpressionParser;
+import tfc.expression_solver.Expression;
+import tfc.expression_solver.ExpressionParser;
 
 public class EquationSimplificationTest {
 	public static void main(String[] args) {

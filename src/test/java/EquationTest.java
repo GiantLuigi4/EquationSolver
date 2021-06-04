@@ -1,9 +1,9 @@
-import tfc.equation_solver.Expression;
-import tfc.equation_solver.ExpressionParser;
-import tfc.equation_solver.operations.DefaultOperators;
-import tfc.equation_solver.sorting.Step;
-import tfc.equation_solver.sorting.StepSorter;
-import tfc.equation_solver.values.Constant;
+import tfc.expression_solver.Expression;
+import tfc.expression_solver.ExpressionParser;
+import tfc.expression_solver.operations.DefaultOperators;
+import tfc.expression_solver.sorting.Step;
+import tfc.expression_solver.sorting.StepSorter;
+import tfc.expression_solver.values.Constant;
 
 import java.util.ArrayList;
 

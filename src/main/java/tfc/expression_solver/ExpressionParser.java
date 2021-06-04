@@ -1,12 +1,12 @@
-package tfc.equation_solver;
+package tfc.expression_solver;
 
-import tfc.equation_solver.operations.DefaultOperators;
-import tfc.equation_solver.operations.Operator;
-import tfc.equation_solver.operations.OperatorList;
-import tfc.equation_solver.sorting.Step;
-import tfc.equation_solver.sorting.StepSorter;
-import tfc.equation_solver.values.Constant;
-import tfc.equation_solver.values.Value;
+import tfc.expression_solver.operations.DefaultOperators;
+import tfc.expression_solver.operations.Operator;
+import tfc.expression_solver.operations.OperatorList;
+import tfc.expression_solver.sorting.Step;
+import tfc.expression_solver.sorting.StepSorter;
+import tfc.expression_solver.values.Constant;
+import tfc.expression_solver.values.Value;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,6 @@
-package tfc.equation_solver.operations;
+package tfc.expression_solver.operations;
 
-import tfc.equation_solver.operations.operators.*;
+import tfc.expression_solver.operations.operators.*;
 
 import java.util.HashMap;
 

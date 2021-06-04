@@ -1,4 +1,4 @@
-package tfc.equation_solver.operations;
+package tfc.expression_solver.operations;
 
 public abstract class OperatorList {
 	public abstract Operator get(char symbol);

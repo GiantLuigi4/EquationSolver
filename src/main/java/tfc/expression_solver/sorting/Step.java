@@ -1,7 +1,7 @@
-package tfc.equation_solver.sorting;
+package tfc.expression_solver.sorting;
 
-import tfc.equation_solver.operations.Operator;
-import tfc.equation_solver.values.Value;
+import tfc.expression_solver.operations.Operator;
+import tfc.expression_solver.values.Value;
 
 public class Step {
 	public final char key;

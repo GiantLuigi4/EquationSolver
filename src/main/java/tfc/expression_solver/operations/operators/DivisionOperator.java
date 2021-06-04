@@ -1,8 +1,8 @@
-package tfc.equation_solver.operations.operators;
+package tfc.expression_solver.operations.operators;
 
-import tfc.equation_solver.Expression;
-import tfc.equation_solver.operations.Operator;
-import tfc.equation_solver.values.Value;
+import tfc.expression_solver.Expression;
+import tfc.expression_solver.operations.Operator;
+import tfc.expression_solver.values.Value;
 
 public class DivisionOperator extends Operator {
 	public double apply(Expression expression, Value left, Value right) {
