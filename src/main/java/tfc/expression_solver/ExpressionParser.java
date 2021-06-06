@@ -141,6 +141,19 @@ public class ExpressionParser {
 			Value v = new Constant(Double.parseDouble(tempV.toString()));
 			steps.add(new Step(op, getFor(op), v));
 		}
+		if (unclosedParenthesisMethod == 0 && methodParse.length() != 0) {
+			for (MethodMarker method : methods) {
+				if (method.matches(methodParse.toString())) {
+					Value v = method.generate(methodParse.toString());
+					if (operators.has(op) || op == ' ') {
+						steps.add(new Step(op, getFor(op), v));
+					}
+					methodParse = new StringBuilder();
+					inStringMethod = false;
+					isEscaped = false;
+				}
+			}
+		}
 		return steps;
 	}
 	
