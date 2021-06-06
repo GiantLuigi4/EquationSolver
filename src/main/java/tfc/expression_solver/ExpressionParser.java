@@ -88,6 +88,7 @@ public class ExpressionParser {
 					isEscaped = false;
 				}
 				if (unclosedParenthesisMethod == 0 && operators.has(c)) {
+					methodParse = new StringBuilder(methodParse.substring(0, methodParse.length() - 1).trim());
 					for (MethodMarker method : methods) {
 						if (method.matches(methodParse.toString())) {
 							Value v = method.generate(methodParse.toString());
@@ -143,6 +144,7 @@ public class ExpressionParser {
 			steps.add(new Step(op, getFor(op), v));
 		}
 		if (unclosedParenthesisMethod == 0 && methodParse.length() != 0) {
+			methodParse = new StringBuilder(methodParse.toString().trim());
 			for (MethodMarker method : methods) {
 				if (method.matches(methodParse.toString())) {
 					Value v = method.generate(methodParse.toString());
