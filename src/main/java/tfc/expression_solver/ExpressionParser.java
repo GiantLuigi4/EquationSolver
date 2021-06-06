@@ -97,6 +97,7 @@ public class ExpressionParser {
 							methodParse = new StringBuilder();
 							inStringMethod = false;
 							isEscaped = false;
+							op = c;
 						}
 					}
 				}
