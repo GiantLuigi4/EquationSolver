@@ -12,9 +12,8 @@ import java.util.ArrayList;
 
 public class ExpressionParser {
 	private final OperatorList operators;
-	//private final MethodList methods; //TODO
-	//TODO: fields/variables
 	private final StepSorter sorter;
+	public final ArrayList<MethodMarker> methods = new ArrayList<>();
 	
 	public ExpressionParser() {
 		this(new DefaultOperators());
@@ -71,8 +70,41 @@ public class ExpressionParser {
 		int innerEqCount = 0;
 		StringBuilder tempV = new StringBuilder();
 		char op = ' ';
+		StringBuilder methodParse = new StringBuilder();
+		int unclosedParenthesisMethod = 0;
+		boolean inStringMethod = false;
+		boolean isEscaped = false;
 		for (char c : str.toCharArray()) {
-			if (c == '(' || (tempEq.length() > 0)) {
+			if (Character.isAlphabetic(c) || methodParse.length() != 0) {
+				methodParse.append(c);
+				if (!isEscaped) {
+					if (!inStringMethod) {
+						if (c == '(') unclosedParenthesisMethod++;
+						if (c == ')') unclosedParenthesisMethod--;
+						if (c == '\\') isEscaped = true;
+					}
+					if (c == '\"') inStringMethod = !inStringMethod;
+				} else {
+					isEscaped = false;
+				}
+				if (unclosedParenthesisMethod == 0 && operators.has(op)) {
+					for (MethodMarker method : methods) {
+						if (method.matches(methodParse.toString())) {
+							Value v = method.generate(methodParse.toString());
+							if (operators.has(op) || op == ' ') {
+								steps.add(new Step(op, getFor(op), v));
+							}
+							methodParse = new StringBuilder();
+							inStringMethod = false;
+							isEscaped = false;
+						}
+					}
+				}
+				continue;
+			}
+			if (c == ' ') {
+				continue;
+			} else if (c == '(' || (tempEq.length() > 0)) {
 				if (tempV.length() > 0) {
 					Value v = new Constant(Double.parseDouble(tempV.toString()));
 					tempV = new StringBuilder();
@@ -94,8 +126,6 @@ public class ExpressionParser {
 					}
 				}
 				tempEq.append(c);
-			} else if (c == ' ') {
-				continue;
 			} else if (Character.isDigit(c) || c == '.') {
 				tempV.append(c);
 			} else {
