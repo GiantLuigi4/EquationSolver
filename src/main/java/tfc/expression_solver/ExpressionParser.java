@@ -87,7 +87,7 @@ public class ExpressionParser {
 				} else {
 					isEscaped = false;
 				}
-				if (unclosedParenthesisMethod == 0 && operators.has(op)) {
+				if (unclosedParenthesisMethod == 0 && operators.has(c)) {
 					for (MethodMarker method : methods) {
 						if (method.matches(methodParse.toString())) {
 							Value v = method.generate(methodParse.toString());
