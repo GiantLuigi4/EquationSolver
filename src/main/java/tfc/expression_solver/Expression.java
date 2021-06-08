@@ -55,7 +55,9 @@ public class Expression extends Value {
 	 * returns true if the any nested expressions have no non constants
 	 */
 	public boolean hasInnerConstantExpression() {
-		if (isConstant()) return false;
+		if (this.expression.size() == 1)
+			return false;
+		if (isConstant()) return true;
 		boolean hasNonConstant = false;
 		for (Pair<Operator, Value> step : expression) {
 			if (step.second instanceof Expression) {
@@ -63,8 +65,6 @@ public class Expression extends Value {
 			}
 			if (!isValueConstant(step.second)) hasNonConstant = true;
 		}
-		if (this.expression.size() == 1)
-			return false;
 		return !hasNonConstant;
 	}
 	
@@ -116,6 +116,7 @@ public class Expression extends Value {
 		// if the current and previous values are both constant, resolve both values and run the operator of the second value on them, setting the operator of the new value to be the operator of the old current value
 		// add the new current value and operator to the Expression created at the start of the method
 		// return the simplified expression once done iterating through all values
+		if (this.expression.size() == 1) return this;
 		if (hasInnerConstantExpression()) return resolveConstants().simplify();
 		Expression eq = new Expression(parser);
 		Value lastV = null;
@@ -144,6 +145,7 @@ public class Expression extends Value {
 	/**
 	 * returns the value which the expression gets resolved to under the parser provided to the method
 	 */
+	// TODO: generify to Number instead of double
 	public double get(ExpressionParser parser) {
 		double v = 1;
 		for (Pair<Operator, Value> step : expression) {
